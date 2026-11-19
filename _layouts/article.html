@@ -1,0 +1,119 @@
+---
+layout: default
+---
+<div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+
+<article>
+    <header class="article-header">
+        <div class="article-container">
+            <div class="breadcrumbs">
+                <a href="{{ '/' | relative_url }}">Главная</a>
+                <span>/</span>
+                <a href="{{ '/#research' | relative_url }}">Исследования</a>
+                <span>/</span>
+                <span>{{ page.rubric }}</span>
+            </div>
+
+            <div class="article-rubric">{{ page.rubric }}</div>
+            <h1>{{ page.title }}</h1>
+            <p class="article-lead">{{ page.description }}</p>
+
+            <div class="article-meta-bar">
+                <span><strong>Дата публикации:</strong> {{ page.date | date: "%d %B %Y" }}</span>
+                <span><strong>Направление:</strong> {{ page.rubric }}</span>
+                <span><strong>Время чтения:</strong> ~{{ page.reading_time | default: 7 }} минут</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-container">
+        <div class="article-body">
+            {{ content }}
+
+            {% if page.bibliography %}
+            <div class="bibliography">
+                <h3>Список использованной литературы</h3>
+                {{ page.bibliography }}
+            </div>
+            {% endif %}
+
+            {% if page.citation %}
+            <div class="citation-card">
+                <div class="citation-header">
+                    <span>Как цитировать материал (ГОСТ)</span>
+                    <button class="copy-btn" id="copyBtn" type="button">Скопировать ссылку</button>
+                </div>
+                <div class="citation-text" id="citationText">{{ page.citation }}</div>
+            </div>
+            {% endif %}
+
+            <div class="article-footer-nav">
+                <div class="tag-list">
+                    {% for tag in page.tags %}
+                    <span class="tag">#{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <a href="{{ '/' | relative_url }}" class="back-link">← Вернуться на главную</a>
+            </div>
+        </div>
+    </div>
+</article>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Индикатор прогресса чтения
+        const progressBar = document.getElementById('progressBar');
+        if (progressBar) {
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = scrollPercent + '%';
+            }, { passive: true });
+        }
+
+        // Копирование библиографической ссылки
+        const copyBtn = document.getElementById('copyBtn');
+        const citationText = document.getElementById('citationText');
+
+        if (copyBtn && citationText) {
+            copyBtn.addEventListener('click', function () {
+                const text = citationText.innerText.trim();
+
+                function showCopied() {
+                    const originalText = copyBtn.innerText;
+                    copyBtn.innerText = 'Скопировано ✓';
+                    setTimeout(function () {
+                        copyBtn.innerText = originalText;
+                    }, 2000);
+                }
+
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(text).then(showCopied).catch(function () {
+                        fallbackCopy(text, showCopied);
+                    });
+                } else {
+                    fallbackCopy(text, showCopied);
+                }
+            });
+        }
+
+        // Fallback для http:// и старых браузеров без Clipboard API
+        function fallbackCopy(text, onSuccess) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'absolute';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+                const ok = document.execCommand('copy');
+                if (ok && typeof onSuccess === 'function') onSuccess();
+            } catch (e) {
+                console.error('Не удалось скопировать:', e);
+            }
+            document.body.removeChild(ta);
+        }
+    });
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jekyll-seo-tag автоматически подставит title, description, canonical и OG-теги -->
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="{{ '/' | relative_url }}" class="logo">
+                <span class="logo-code">ICII</span>
+                <span class="logo-name">Институт социальных и институциональных исследований</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{{ '/#research' | relative_url }}">Исследования</a></li>
+                    <li><a href="{{ '/#projects' | relative_url }}">Проекты</a></li>
+                    <!-- ИСПРАВЛЕНО: /glossary.html → /glossary/ -->
+                    <li><a href="{{ '/glossary/' | relative_url }}">Глоссарий</a></li>
+                    <li><a href="{{ '/#about' | relative_url }}">Об институте</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div>© 2026 ICII.RU — Институт социальных и институциональных исследований</div>
+            <div class="footer-links">
+                <a href="{{ '/#research' | relative_url }}">Исследования</a>
+                <!-- ИСПРАВЛЕНО: /glossary.html → /glossary/ -->
+                <a href="{{ '/glossary/' | relative_url }}">Глоссарий</a>
+                <a href="{{ '/#about' | relative_url }}">О проекте</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
