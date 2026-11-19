@@ -1,0 +1,209 @@
+---
+layout: default
+title: Глоссарий ИСИИ
+description: "Академический словарь ключевых понятий социологии управления, системного подхода и институционализма."
+permalink: /glossary/
+---
+
+<section class="glossary-hero">
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="{{ '/' | relative_url }}">Главная</a>
+            <span>/</span>
+            <span>Глоссарий ИСИИ</span>
+        </div>
+        <h1>Академический словарь социальных и управленческих систем</h1>
+        <p>Базовый понятийный аппарат Института социальных и институциональных исследований: от классической теории бюрократии и неоинституционализма до алгоритмического управления.</p>
+
+        <div class="controls-wrapper">
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="Поиск по термину, автору или определению (например: Луман, паноптикум, изоморфизм)...">
+            </div>
+
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all" type="button">Все термины</button>
+                <button class="filter-btn" data-filter="management" type="button">Социология управления</button>
+                <button class="filter-btn" data-filter="institutes" type="button">Институты</button>
+                <button class="filter-btn" data-filter="digital" type="button">Цифровые алгоритмы</button>
+                <button class="filter-btn" data-filter="systems" type="button">Теория систем</button>
+                <span class="terms-count" id="termsCount">Показано терминов: 10</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="glossary-section">
+    <div class="container">
+        <div class="terms-grid" id="termsGrid">
+
+            <article class="term-card" data-category="digital">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Цифровые алгоритмы</span>
+                        <span class="term-author">С. Зубофф / алгоритмика</span>
+                    </div>
+                    <h2>Алгоритмическое управление</h2>
+                    <div class="term-en">Algorithmic Governance</div>
+                    <p class="term-def">Форма координации и контроля в цифровых социальных системах, при которой распределение ресурсов, видимости и санкций осуществляется автоматизированными алгоритмами ранжирования, рекомендаций и скоринга без прямого человеческого вмешательства.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="systems">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Теория систем</span>
+                        <span class="term-author">Н. Луман</span>
+                    </div>
+                    <h2>Аутопоэзис социальных систем</h2>
+                    <div class="term-en">Social Autopoiesis</div>
+                    <p class="term-def">Способность сложных социальных систем (права, экономики, политики, медиа) непрерывно воспроизводить собственные элементы, границы и внутреннюю логику исключительно за счет собственных операций коммуникации, не поддаваясь прямому внешнему программированию.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="management">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Социология управления</span>
+                        <span class="term-author">Ч. Гудхарт</span>
+                    </div>
+                    <h2>Закон Гудхарта</h2>
+                    <div class="term-en">Goodhart's Law</div>
+                    <p class="term-def">Управленческая закономерность, согласно которой когда статистический или социальный показатель (KPI, рейтинг, индекс цитирования) становится целевым критерием оценки эффективности, он перестает быть надежным измерителем, так как акторы начинают оптимизировать саму метрику в ущерб сути деятельности.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="institutes">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Институты</span>
+                        <span class="term-author">П. Димаджио, У. Пауэлл</span>
+                    </div>
+                    <h2>Институциональный изоморфизм</h2>
+                    <div class="term-en">Institutional Isomorphism</div>
+                    <p class="term-def">Процесс, в ходе которого различные организации и институты, действующие в одной институциональной среде, постепенно становятся похожими друг на друга по структуре, правилам и управленческим практикам — не столько ради роста эффективности, сколько ради обретения внешней легитимности.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="institutes">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Институты</span>
+                        <span class="term-author">В. Полтерович / Д. Норт</span>
+                    </div>
+                    <h2>Институциональная ловушка</h2>
+                    <div class="term-en">Institutional Trap</div>
+                    <p class="term-def">Устойчивая, самоподдерживающаяся, но неэффективная норма поведения или социальный институт, который сохраняется в системе только потому, что попытка его изменить в одиночку обходится участникам дороже, чем следование старым неэффективным правилам.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="management">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Социология управления</span>
+                        <span class="term-author">М. Вебер</span>
+                    </div>
+                    <h2>Рациональная бюрократия</h2>
+                    <div class="term-en">Rational-Legal Bureaucracy</div>
+                    <p class="term-def">Тип легального господства и управленческой организации, основанный на безличных формальных правилах, четкой иерархии компетенций, документообороте и профессиональном разделении труда, призванный минимизировать произвол отдельных руководителей.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="systems">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Теория систем</span>
+                        <span class="term-author">М. Грановеттер</span>
+                    </div>
+                    <h2>Сила слабых связей</h2>
+                    <div class="term-en">The Strength of Weak Ties</div>
+                    <p class="term-def">Сетевой феномен, показывающий, что эпизодические и поверхностные социальные контакты (знакомые, коллеги из смежных сфер) играют более важную роль в распространении новой информации, инноваций и социальной мобильности, чем плотные круги близких друзей.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="institutes">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Институты</span>
+                        <span class="term-author">П. Дэвид / У. Б. Артур</span>
+                    </div>
+                    <h2>Эффект колеи (зависимость от пути)</h2>
+                    <div class="term-en">Path Dependence</div>
+                    <p class="term-def">Свойство социальных и управленческих систем, при котором текущие решения и траектория развития жестко ограничены исторически сложившимися стандартами и институтами прошлого, даже если альтернативные модели объективно более эффективны.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="digital">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Цифровые алгоритмы</span>
+                        <span class="term-author">Э. Паризер / К. Санстейн</span>
+                    </div>
+                    <h2>Эхо-камера и фильтр-пузырь</h2>
+                    <div class="term-en">Echo Chamber &amp; Filter Bubble</div>
+                    <p class="term-def">Состояние информационной среды, в котором алгоритмы персонализации и сетевая гомофилия изолируют участников сообщества от альтернативных точек зрения, усиливая групповую поляризацию и радикализацию внутренних норм.</p>
+                </div>
+            </article>
+
+            <article class="term-card" data-category="management">
+                <div>
+                    <div class="term-top">
+                        <span class="term-category">Социология управления</span>
+                        <span class="term-author">Г. Саймон</span>
+                    </div>
+                    <h2>Ограниченная рациональность</h2>
+                    <div class="term-en">Bounded Rationality</div>
+                    <p class="term-def">Концепция принятия управленческих решений, согласно которой субъекты в организациях действуют в условиях неполной информации, дефицита времени и когнитивных ограничений, выбирая не «идеальный», а первый достаточно удовлетворительный вариант.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="empty-state" id="emptyState">
+            По вашему запросу терминов не найдено. Попробуйте изменить формулировку или сбросить фильтр категорий.
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const termCards = document.querySelectorAll('.term-card');
+        const termsCount = document.getElementById('termsCount');
+        const emptyState = document.getElementById('emptyState');
+        let currentCategory = 'all';
+
+        function filterTerms() {
+            const query = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            termCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const text = card.innerText.toLowerCase();
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+                const matchesQuery = text.includes(query);
+
+                if (matchesCategory && matchesQuery) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            termsCount.innerText = 'Показано терминов: ' + visibleCount;
+            emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', filterTerms);
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.getAttribute('data-filter');
+                filterTerms();
+            });
+        });
+    });
+</script>

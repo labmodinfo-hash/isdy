@@ -1,0 +1,139 @@
+---
+layout: default
+title: Главная
+---
+
+<section class="hero">
+    <div class="container">
+        <span class="hero-eyebrow">Академические исследования</span>
+        <h1>Социология управления, институтов и цифровых систем</h1>
+        <p>Расшифровываем архитектуру социальных систем, власть алгоритмов и скрытые правила управления.</p>
+        <p>Исследования на стыке классической социологии, институционального анализа и теории сложных систем. Разбираем, как работают формальные и неформальные нормы, как устроены организации и как цифровые платформы управляют коллективным поведением.</p>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Проекты и структура института</h2>
+        </div>
+
+        <div class="structure-grid">
+            <article class="structure-card">
+                <div>
+                    <span class="roman-num">I</span>
+                    <h3>Проект «Социология управления»</h3>
+                    <p>Анализ формальной бюрократии, организационной культуры, механизмов власти и принятия управленческих решений.</p>
+                </div>
+                <a href="#research" class="card-link">Смотреть работы →</a>
+            </article>
+
+            <article class="structure-card">
+                <div>
+                    <span class="roman-num">II</span>
+                    <h3>Лаборатория цифровых сообществ и алгоритмов</h3>
+                    <p>Алгоритмическое управление, архитектура онлайн-платформ, сетевая поляризация и социальная динамика в медиа.</p>
+                </div>
+                <a href="#research" class="card-link">Смотреть работы →</a>
+            </article>
+
+            <article class="structure-card">
+                <div>
+                    <span class="roman-num">III</span>
+                    <h3>Архив социальных институтов</h3>
+                    <p>Эволюция неформальных правил, институциональные ловушки, социальный капитал и устойчивость общественных систем.</p>
+                </div>
+                <a href="#research" class="card-link">Смотреть работы →</a>
+            </article>
+
+            <article class="structure-card">
+                <div>
+                    <span class="roman-num">IV</span>
+                    <h3>Глоссарий ИСИИ</h3>
+                    <p>Академический словарь ключевых понятий социологии управления, системного подхода и институционализма.</p>
+                </div>
+                <!-- ИСПРАВЛЕНО: /glossary.html → /glossary/ -->
+                <a href="{{ '/glossary/' | relative_url }}" class="card-link">К словарю →</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="research">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Свежие исследования</h2>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Все материалы</button>
+                <button class="filter-btn" data-filter="management">Социология управления</button>
+                <button class="filter-btn" data-filter="digital">Цифровые алгоритмы</button>
+                <button class="filter-btn" data-filter="institutes">Институты</button>
+            </div>
+        </div>
+
+        <div class="articles-grid">
+            {% for post in site.posts %}
+            <article class="article-card" data-category="{{ post.category_key | default: 'all' }}">
+                <div class="article-meta">{{ post.rubric }}</div>
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                <p>{{ post.description }}</p>
+                <div class="article-footer">
+                    <div class="article-tags">{{ post.tags | join: " • " }}</div>
+                    <a href="{{ post.url | relative_url }}" class="card-link">Читать исследование →</a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="glossary">
+    <div class="container">
+        <div class="glossary-banner">
+            <div>
+                <div class="glossary-label">Словарь ИСИИ • Термин дня</div>
+                <h2 class="glossary-term">Институциональный изоморфизм</h2>
+                <div class="glossary-sub">Institutional Isomorphism (П. Димаджио, У. Пауэлл)</div>
+                <p class="glossary-desc">Процесс, в ходе которого различные организации и социальные институты, действующие в одной среде, постепенно становятся похожими друг на друга по структуре, правилам и управленческим практикам — не столько ради роста эффективности, сколько ради обретения легитимности.</p>
+            </div>
+            <div class="glossary-action">
+                <!-- ИСПРАВЛЕНО: /glossary.html → /glossary/ -->
+                <a href="{{ '/glossary/' | relative_url }}" class="btn-primary">Открыть полный глоссарий →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="manifesto" id="about">
+    <div class="container manifesto-inner">
+        <div class="manifesto-tag">Манифест проекта</div>
+        <h2>Общество как сложная система управления и коммуникаций</h2>
+        <p>Институт социальных и институциональных исследований (ICII) создан для тех, кто смотрит глубже формальных отчетов и видимых событий. Мы объединяем инструментарий классической социологии управления, институционального анализа и исследований цифровой среды, чтобы разбирать реальные механизмы координации в обществе — без сухого канцелярита, но с опорой на фундаментальную научную традицию.</p>
+        <a href="#research" class="btn-primary">Перейти к архиву исследований</a>
+    </div>
+</section>
+
+<script>
+    // Фильтрация публикаций по категориям (работает с data-category из _posts)
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.article-card');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

@@ -1,0 +1,37 @@
+# _config.yml
+title: "ICII — Институт социальных и институциональных исследований"
+email: "info@icii.ru"
+description: >-
+  Академические исследования социологии управления,
+  институтов и цифровых систем.
+baseurl: ""
+url: "https://isdy.ru"
+
+# Красивые URL статей: /research/luhmann/, /research/informal/, /research/panopticon/
+permalink: /research/:title/
+
+# Плагины, которые GitHub Pages поддерживает "из коробки"
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO-теги для jekyll-seo-tag
+lang: ru_RU
+
+# Настройки по умолчанию
+defaults:
+  # Все статьи из _posts автоматически используют шаблон article
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "article"
+
+# Исключения — эти файлы Jekyll не должен копировать в _site
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
