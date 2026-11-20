@@ -6,6 +6,7 @@ description: >-
   институтов и цифровых систем.
 baseurl: ""
 url: "https://isdy.ru"
+future: true
 
 # Красивые URL статей: /research/luhmann/, /research/informal/, /research/panopticon/
 permalink: /research/:title/
